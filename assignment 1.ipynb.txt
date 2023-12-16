@@ -1,0 +1,609 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "id": "453d140f",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Python:Exercises::PHP:exercises:\n"
+     ]
+    }
+   ],
+   "source": [
+    "# 1\n",
+    "import re\n",
+    "\n",
+    "sample_text = 'Python Exercises, PHP exercises.'\n",
+    "modified_text = sample_text.replace(' ',':').replace(',',':').replace('.',':')\n",
+    "\n",
+    "print(modified_text)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "970bfe16",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "         SUMMARY\n",
+      "0    hello world\n",
+      "1     xxxxx test\n",
+      "2  four five six\n"
+     ]
+    }
+   ],
+   "source": [
+    "#2\n",
+    "\n",
+    "import pandas as pd\n",
+    "\n",
+    "dictionary = {'SUMMARY': ['hello, world!','xxxxx, test', '123four, five:; six......']}\n",
+    "df = pd.DataFrame(dictionary)\n",
+    "\n",
+    "df['SUMMARY'] = df['SUMMARY'].str.replace(r'[^a-zA-Z\\s]', '', regex=True)\n",
+    "\n",
+    "print(df)\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 18,
+   "id": "beb8d5ea",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "         SUMMARY\n",
+      "0    hello world\n",
+      "1     xxxxx test\n",
+      "2  four five six\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(df)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "39e518d9",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "#3\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "ed2ce789",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "#4"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 11,
+   "id": "8cdce25a",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "['example ', 'hr@fliprobo ', 'hello ', 'Data ']\n"
+     ]
+    }
+   ],
+   "source": [
+    "#6\n",
+    "import re\n",
+    "\n",
+    "def remove_parentheses(strings):\n",
+    "    pattern = re.compile(r'\\([^)]*\\)')\n",
+    "    \n",
+    "    \n",
+    "    return result\n",
+    "\n",
+    "sample_text = [\"example (.com)\", \"hr@fliprobo (.com)\", \"hello (Data science world)\", \"Data (scientist)\"]\n",
+    "result = remove_parentheses(sample_text)\n",
+    "print(result)"
+   ]
+  },
+  {
+   "cell_type": "raw",
+   "id": "efe1d304",
+   "metadata": {},
+   "source": [
+    "print(result)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 13,
+   "id": "b9fc3ab1",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "['Importance', 'Of', 'Regular', 'Expressions', 'In', 'Python']\n"
+     ]
+    }
+   ],
+   "source": [
+    "#7\n",
+    "import re\n",
+    "\n",
+    "sample_text = \"ImportanceOfRegularExpressionsInPython\"\n",
+    "result = re.findall(r'[A-Z][a-z]*', sample_text)\n",
+    "\n",
+    "print(result)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 15,
+   "id": "1d4921f1",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "RegularExpressions1 IsAn2 ImportantTopicInPython\n"
+     ]
+    }
+   ],
+   "source": [
+    "#8\n",
+    "import re\n",
+    "\n",
+    "def insert_spaces(text):\n",
+    "    result = re.sub(r'(\\d)([A-Za-z])', r'\\1 \\2', text)\n",
+    "    return result\n",
+    "sample_text = \"RegularExpressions1IsAn2ImportantTopicInPython\"\n",
+    "\n",
+    "result = insert_spaces(sample_text)\n",
+    "\n",
+    "print(result)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "id": "d1d29aa4",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Regula Expression  IsAn Importan Topi InPython\n"
+     ]
+    }
+   ],
+   "source": [
+    "#9\n",
+    "import re\n",
+    "\n",
+    "def insert_spaces(text):\n",
+    "    pattern = r'(?<=[a-z])([a-z0-9])(?=[A-Z0-9])'\n",
+    "    result = re.sub(pattern, ' ', text)\n",
+    "    \n",
+    "    return result\n",
+    "\n",
+    "sample_text = \"RegularExpressions1IsAn2ImportantTopicInPython\"\n",
+    "output = insert_spaces(sample_text)\n",
+    "\n",
+    "print(output)\n",
+    "\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "id": "8f371bc3",
+   "metadata": {},
+   "outputs": [
+    {
+     "ename": "KeyError",
+     "evalue": "'country'",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[1;31m---------------------------------------------------------------------------\u001b[0m",
+      "\u001b[1;31mKeyError\u001b[0m                                  Traceback (most recent call last)",
+      "File \u001b[1;32m~\\anaconda3\\Lib\\site-packages\\pandas\\core\\indexes\\base.py:3653\u001b[0m, in \u001b[0;36mIndex.get_loc\u001b[1;34m(self, key)\u001b[0m\n\u001b[0;32m   3652\u001b[0m \u001b[38;5;28;01mtry\u001b[39;00m:\n\u001b[1;32m-> 3653\u001b[0m     \u001b[38;5;28;01mreturn\u001b[39;00m \u001b[38;5;28mself\u001b[39m\u001b[38;5;241m.\u001b[39m_engine\u001b[38;5;241m.\u001b[39mget_loc(casted_key)\n\u001b[0;32m   3654\u001b[0m \u001b[38;5;28;01mexcept\u001b[39;00m \u001b[38;5;167;01mKeyError\u001b[39;00m \u001b[38;5;28;01mas\u001b[39;00m err:\n",
+      "File \u001b[1;32m~\\anaconda3\\Lib\\site-packages\\pandas\\_libs\\index.pyx:147\u001b[0m, in \u001b[0;36mpandas._libs.index.IndexEngine.get_loc\u001b[1;34m()\u001b[0m\n",
+      "File \u001b[1;32m~\\anaconda3\\Lib\\site-packages\\pandas\\_libs\\index.pyx:176\u001b[0m, in \u001b[0;36mpandas._libs.index.IndexEngine.get_loc\u001b[1;34m()\u001b[0m\n",
+      "File \u001b[1;32mpandas\\_libs\\hashtable_class_helper.pxi:7080\u001b[0m, in \u001b[0;36mpandas._libs.hashtable.PyObjectHashTable.get_item\u001b[1;34m()\u001b[0m\n",
+      "File \u001b[1;32mpandas\\_libs\\hashtable_class_helper.pxi:7088\u001b[0m, in \u001b[0;36mpandas._libs.hashtable.PyObjectHashTable.get_item\u001b[1;34m()\u001b[0m\n",
+      "\u001b[1;31mKeyError\u001b[0m: 'country'",
+      "\nThe above exception was the direct cause of the following exception:\n",
+      "\u001b[1;31mKeyError\u001b[0m                                  Traceback (most recent call last)",
+      "Cell \u001b[1;32mIn[2], line 7\u001b[0m\n\u001b[0;32m      4\u001b[0m github_url \u001b[38;5;241m=\u001b[39m \u001b[38;5;124m\"\u001b[39m\u001b[38;5;124mhttps://raw.githubusercontent.com/dsrscientist/DSData/master/happiness_score_dataset.csv\u001b[39m\u001b[38;5;124m\"\u001b[39m\n\u001b[0;32m      5\u001b[0m df \u001b[38;5;241m=\u001b[39m pd\u001b[38;5;241m.\u001b[39mread_csv(github_url)\n\u001b[1;32m----> 7\u001b[0m df[\u001b[38;5;124m'\u001b[39m\u001b[38;5;124mfirst_five_letters\u001b[39m\u001b[38;5;124m'\u001b[39m] \u001b[38;5;241m=\u001b[39m df[\u001b[38;5;124m'\u001b[39m\u001b[38;5;124mcountry\u001b[39m\u001b[38;5;124m'\u001b[39m]\u001b[38;5;241m.\u001b[39mstr[:\u001b[38;5;241m6\u001b[39m]\n\u001b[0;32m      9\u001b[0m \u001b[38;5;28mprint\u001b[39m(df[[\u001b[38;5;124m'\u001b[39m\u001b[38;5;124mcountry\u001b[39m\u001b[38;5;124m'\u001b[39m, \u001b[38;5;124m'\u001b[39m\u001b[38;5;124mfirst_five_letters\u001b[39m\u001b[38;5;124m'\u001b[39m]])\n",
+      "File \u001b[1;32m~\\anaconda3\\Lib\\site-packages\\pandas\\core\\frame.py:3761\u001b[0m, in \u001b[0;36mDataFrame.__getitem__\u001b[1;34m(self, key)\u001b[0m\n\u001b[0;32m   3759\u001b[0m \u001b[38;5;28;01mif\u001b[39;00m \u001b[38;5;28mself\u001b[39m\u001b[38;5;241m.\u001b[39mcolumns\u001b[38;5;241m.\u001b[39mnlevels \u001b[38;5;241m>\u001b[39m \u001b[38;5;241m1\u001b[39m:\n\u001b[0;32m   3760\u001b[0m     \u001b[38;5;28;01mreturn\u001b[39;00m \u001b[38;5;28mself\u001b[39m\u001b[38;5;241m.\u001b[39m_getitem_multilevel(key)\n\u001b[1;32m-> 3761\u001b[0m indexer \u001b[38;5;241m=\u001b[39m \u001b[38;5;28mself\u001b[39m\u001b[38;5;241m.\u001b[39mcolumns\u001b[38;5;241m.\u001b[39mget_loc(key)\n\u001b[0;32m   3762\u001b[0m \u001b[38;5;28;01mif\u001b[39;00m is_integer(indexer):\n\u001b[0;32m   3763\u001b[0m     indexer \u001b[38;5;241m=\u001b[39m [indexer]\n",
+      "File \u001b[1;32m~\\anaconda3\\Lib\\site-packages\\pandas\\core\\indexes\\base.py:3655\u001b[0m, in \u001b[0;36mIndex.get_loc\u001b[1;34m(self, key)\u001b[0m\n\u001b[0;32m   3653\u001b[0m     \u001b[38;5;28;01mreturn\u001b[39;00m \u001b[38;5;28mself\u001b[39m\u001b[38;5;241m.\u001b[39m_engine\u001b[38;5;241m.\u001b[39mget_loc(casted_key)\n\u001b[0;32m   3654\u001b[0m \u001b[38;5;28;01mexcept\u001b[39;00m \u001b[38;5;167;01mKeyError\u001b[39;00m \u001b[38;5;28;01mas\u001b[39;00m err:\n\u001b[1;32m-> 3655\u001b[0m     \u001b[38;5;28;01mraise\u001b[39;00m \u001b[38;5;167;01mKeyError\u001b[39;00m(key) \u001b[38;5;28;01mfrom\u001b[39;00m \u001b[38;5;21;01merr\u001b[39;00m\n\u001b[0;32m   3656\u001b[0m \u001b[38;5;28;01mexcept\u001b[39;00m \u001b[38;5;167;01mTypeError\u001b[39;00m:\n\u001b[0;32m   3657\u001b[0m     \u001b[38;5;66;03m# If we have a listlike key, _check_indexing_error will raise\u001b[39;00m\n\u001b[0;32m   3658\u001b[0m     \u001b[38;5;66;03m#  InvalidIndexError. Otherwise we fall through and re-raise\u001b[39;00m\n\u001b[0;32m   3659\u001b[0m     \u001b[38;5;66;03m#  the TypeError.\u001b[39;00m\n\u001b[0;32m   3660\u001b[0m     \u001b[38;5;28mself\u001b[39m\u001b[38;5;241m.\u001b[39m_check_indexing_error(key)\n",
+      "\u001b[1;31mKeyError\u001b[0m: 'country'"
+     ]
+    }
+   ],
+   "source": [
+    "#10\n",
+    "import pandas as pd\n",
+    "\n",
+    "github_url = \"https://raw.githubusercontent.com/dsrscientist/DSData/master/happiness_score_dataset.csv\"\n",
+    "df = pd.read_csv(github_url)\n",
+    "\n",
+    "df['first_five_letters'] = df['country'].str[:6]\n",
+    "\n",
+    "print(df[['country', 'first_five_letters']])"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 18,
+   "id": "2fa3fa72",
+   "metadata": {},
+   "outputs": [
+    {
+     "ename": "SyntaxError",
+     "evalue": "illegal target for annotation (1920998088.py, line 6)",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[1;36m  Cell \u001b[1;32mIn[18], line 6\u001b[1;36m\u001b[0m\n\u001b[1;33m    user_string.startswith(specific_number): print(f\"the string starts with the {specific_number}.\")\u001b[0m\n\u001b[1;37m    ^\u001b[0m\n\u001b[1;31mSyntaxError\u001b[0m\u001b[1;31m:\u001b[0m illegal target for annotation\n"
+     ]
+    }
+   ],
+   "source": [
+    "#12\n",
+    "\n",
+    "user_string = raw_input(\"enter a string: \")\n",
+    "specific_number = raw_input(\"enter the specific number: \")\n",
+    "\n",
+    "user_string.startswith(specific_number): print(f\"the string starts with the {specific_number}.\")\n",
+    "    else:\n",
+    "        print(f\"the string does not starts with {specific_number}\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 10,
+   "id": "648a326b",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "'fox' is found in the text.\n",
+      "'dog' is found in the text.\n",
+      "'horse' is not found in the text.\n"
+     ]
+    }
+   ],
+   "source": [
+    "#15\n",
+    "sample_text = 'the quick brown fox jumps over the lazy dog'\n",
+    "searched_word = ['fox', 'dog', 'horse']\n",
+    "\n",
+    "for word in searched_word:\n",
+    "    if word in sample_text:\n",
+    "        print(f\"'{word}' is found in the text.\")\n",
+    "    else:\n",
+    "        print(f\"'{word}' is not found in the text.\")\n",
+    "        "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 13,
+   "id": "cd842e7f",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "'fox' is found in the text at position 16.\n"
+     ]
+    }
+   ],
+   "source": [
+    "#16\n",
+    "sample_text = 'the quick brown fox jumps over the lazy dog'\n",
+    "searched_word = 'fox'\n",
+    "position = sample_text.find(searched_word)\n",
+    "\n",
+    "if position != -1:\n",
+    "    print(f\"'{searched_word}' is found in the text at position {position}.\")\n",
+    "else:\n",
+    "          print(f\"'{searched_word}' is not found in the text.\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 17,
+   "id": "4227f5b3",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Pattern 'exercises' found at position 22.\n",
+      "Pattern 'exercises' found at position 36.\n"
+     ]
+    }
+   ],
+   "source": [
+    "#17\n",
+    "sample_text = 'Python Exercises, PHP exercises, c# exercises'\n",
+    "pattern = 'exercises'\n",
+    "\n",
+    "start = 0\n",
+    "\n",
+    "while True:\n",
+    "    start = sample_text.find(pattern,start)\n",
+    "    if start == -1:\n",
+    "        break\n",
+    "    print(f\"Pattern '{pattern}' found at position {start}.\")\n",
+    "    start += len(pattern)\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 24,
+   "id": "68fd4a30",
+   "metadata": {},
+   "outputs": [
+    {
+     "ename": "ValueError",
+     "evalue": "time data '2023-11-04' does not match format '%y-%m-%d'",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[1;31m---------------------------------------------------------------------------\u001b[0m",
+      "\u001b[1;31mValueError\u001b[0m                                Traceback (most recent call last)",
+      "Cell \u001b[1;32mIn[24], line 4\u001b[0m\n\u001b[0;32m      2\u001b[0m \u001b[38;5;28;01mfrom\u001b[39;00m \u001b[38;5;21;01mdatetime\u001b[39;00m \u001b[38;5;28;01mimport\u001b[39;00m datetime\n\u001b[0;32m      3\u001b[0m date_str \u001b[38;5;241m=\u001b[39m \u001b[38;5;124m\"\u001b[39m\u001b[38;5;124m2023-11-04\u001b[39m\u001b[38;5;124m\"\u001b[39m\n\u001b[1;32m----> 4\u001b[0m date_obj \u001b[38;5;241m=\u001b[39m datetime\u001b[38;5;241m.\u001b[39mstrptime(date_str,\u001b[38;5;124m'\u001b[39m\u001b[38;5;124m%\u001b[39m\u001b[38;5;124my-\u001b[39m\u001b[38;5;124m%\u001b[39m\u001b[38;5;124mm-\u001b[39m\u001b[38;5;132;01m%d\u001b[39;00m\u001b[38;5;124m'\u001b[39m)\n\u001b[0;32m      5\u001b[0m formatted_date \u001b[38;5;241m=\u001b[39m date_obj\u001b[38;5;241m.\u001b[39mstrftime(\u001b[38;5;124m'\u001b[39m\u001b[38;5;132;01m%d\u001b[39;00m\u001b[38;5;124m-\u001b[39m\u001b[38;5;124m%\u001b[39m\u001b[38;5;124mm-\u001b[39m\u001b[38;5;124m%\u001b[39m\u001b[38;5;124my\u001b[39m\u001b[38;5;124m'\u001b[39m)\n\u001b[0;32m      7\u001b[0m \u001b[38;5;28mprint\u001b[39m(\u001b[38;5;124mf\u001b[39m\u001b[38;5;124m'\u001b[39m\u001b[38;5;124mOriginal date: \u001b[39m\u001b[38;5;132;01m{\u001b[39;00mdate_str\u001b[38;5;132;01m}\u001b[39;00m\u001b[38;5;124m'\u001b[39m)\n",
+      "File \u001b[1;32m~\\anaconda3\\Lib\\_strptime.py:568\u001b[0m, in \u001b[0;36m_strptime_datetime\u001b[1;34m(cls, data_string, format)\u001b[0m\n\u001b[0;32m    565\u001b[0m \u001b[38;5;28;01mdef\u001b[39;00m \u001b[38;5;21m_strptime_datetime\u001b[39m(\u001b[38;5;28mcls\u001b[39m, data_string, \u001b[38;5;28mformat\u001b[39m\u001b[38;5;241m=\u001b[39m\u001b[38;5;124m\"\u001b[39m\u001b[38;5;132;01m%a\u001b[39;00m\u001b[38;5;124m \u001b[39m\u001b[38;5;124m%\u001b[39m\u001b[38;5;124mb \u001b[39m\u001b[38;5;132;01m%d\u001b[39;00m\u001b[38;5;124m \u001b[39m\u001b[38;5;124m%\u001b[39m\u001b[38;5;124mH:\u001b[39m\u001b[38;5;124m%\u001b[39m\u001b[38;5;124mM:\u001b[39m\u001b[38;5;124m%\u001b[39m\u001b[38;5;124mS \u001b[39m\u001b[38;5;124m%\u001b[39m\u001b[38;5;124mY\u001b[39m\u001b[38;5;124m\"\u001b[39m):\n\u001b[0;32m    566\u001b[0m \u001b[38;5;250m    \u001b[39m\u001b[38;5;124;03m\"\"\"Return a class cls instance based on the input string and the\u001b[39;00m\n\u001b[0;32m    567\u001b[0m \u001b[38;5;124;03m    format string.\"\"\"\u001b[39;00m\n\u001b[1;32m--> 568\u001b[0m     tt, fraction, gmtoff_fraction \u001b[38;5;241m=\u001b[39m _strptime(data_string, \u001b[38;5;28mformat\u001b[39m)\n\u001b[0;32m    569\u001b[0m     tzname, gmtoff \u001b[38;5;241m=\u001b[39m tt[\u001b[38;5;241m-\u001b[39m\u001b[38;5;241m2\u001b[39m:]\n\u001b[0;32m    570\u001b[0m     args \u001b[38;5;241m=\u001b[39m tt[:\u001b[38;5;241m6\u001b[39m] \u001b[38;5;241m+\u001b[39m (fraction,)\n",
+      "File \u001b[1;32m~\\anaconda3\\Lib\\_strptime.py:349\u001b[0m, in \u001b[0;36m_strptime\u001b[1;34m(data_string, format)\u001b[0m\n\u001b[0;32m    347\u001b[0m found \u001b[38;5;241m=\u001b[39m format_regex\u001b[38;5;241m.\u001b[39mmatch(data_string)\n\u001b[0;32m    348\u001b[0m \u001b[38;5;28;01mif\u001b[39;00m \u001b[38;5;129;01mnot\u001b[39;00m found:\n\u001b[1;32m--> 349\u001b[0m     \u001b[38;5;28;01mraise\u001b[39;00m \u001b[38;5;167;01mValueError\u001b[39;00m(\u001b[38;5;124m\"\u001b[39m\u001b[38;5;124mtime data \u001b[39m\u001b[38;5;132;01m%r\u001b[39;00m\u001b[38;5;124m does not match format \u001b[39m\u001b[38;5;132;01m%r\u001b[39;00m\u001b[38;5;124m\"\u001b[39m \u001b[38;5;241m%\u001b[39m\n\u001b[0;32m    350\u001b[0m                      (data_string, \u001b[38;5;28mformat\u001b[39m))\n\u001b[0;32m    351\u001b[0m \u001b[38;5;28;01mif\u001b[39;00m \u001b[38;5;28mlen\u001b[39m(data_string) \u001b[38;5;241m!=\u001b[39m found\u001b[38;5;241m.\u001b[39mend():\n\u001b[0;32m    352\u001b[0m     \u001b[38;5;28;01mraise\u001b[39;00m \u001b[38;5;167;01mValueError\u001b[39;00m(\u001b[38;5;124m\"\u001b[39m\u001b[38;5;124munconverted data remains: \u001b[39m\u001b[38;5;132;01m%s\u001b[39;00m\u001b[38;5;124m\"\u001b[39m \u001b[38;5;241m%\u001b[39m\n\u001b[0;32m    353\u001b[0m                       data_string[found\u001b[38;5;241m.\u001b[39mend():])\n",
+      "\u001b[1;31mValueError\u001b[0m: time data '2023-11-04' does not match format '%y-%m-%d'"
+     ]
+    }
+   ],
+   "source": [
+    "#19\n",
+    "from datetime import datetime\n",
+    "date_str = \"2023-11-04\"\n",
+    "date_obj = datetime.strptime(date_str,'%y-%m-%d')\n",
+    "formatted_date = date_obj.strftime('%d-%m-%y')\n",
+    "                            \n",
+    "print(f'Original date: {date_str}')\n",
+    "print(f'Formatted date:{formatted_date}')\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "d90ef393",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "['01.12', '145.8', '3.01', '27.25', '0.25']\n"
+     ]
+    }
+   ],
+   "source": [
+    "#20\n",
+    "import re\n",
+    "\n",
+    "def find_decimal_numbers(text):\n",
+    "    pattern = r'\\b\\d+\\.\\d{1,2}\\b'\n",
+    "    decimal_numbers = re.findall(pattern, text)\n",
+    "    return decimal_numbers\n",
+    "\n",
+    "sample_text = \"01.12 0132.123 2031875 145.8 3.01 27.25 0.25\"\n",
+    "result = find_decimal_numbers(sample_text)\n",
+    "\n",
+    "print(result)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "d9e0d5b7",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "#21"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "id": "f3c2dc18",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "950\n"
+     ]
+    }
+   ],
+   "source": [
+    "#22\n",
+    "import re\n",
+    "\n",
+    "text = 'my marks in each semster are: 947, 896, 296, 524, 734, 950, 642'\n",
+    "numeric_values = re.findall(r'\\d+', text)\n",
+    "\n",
+    "max_numeric = max(map(int, numeric_values))\n",
+    "\n",
+    "print(max_numeric)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "id": "3e5b1f95",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Regular Expressions Is An Important Topic In Python\n"
+     ]
+    }
+   ],
+   "source": [
+    "#23\n",
+    "import re\n",
+    "def insert_spaces(text):\n",
+    "    spaced_text = re.sub(r'([a-z])([A-Z])', r'\\1 \\2', text)\n",
+    "    spaced_text = re.sub(r'^([A-Z])', r'\\1', spaced_text)\n",
+    "    \n",
+    "    return spaced_text\n",
+    "sample_text = \"RegularExpressionsIsAnImportantTopicInPython\"\n",
+    "\n",
+    "output_text = insert_spaces(sample_text)\n",
+    "\n",
+    "print(output_text)\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "af633354",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Abc\n",
+      "Sdf\n",
+      "Efghi\n",
+      "Jklm\n"
+     ]
+    }
+   ],
+   "source": [
+    "#24\n",
+    "import re\n",
+    "text = \"this is a sample text with different cases: Abc, Sdf, EfghiJklm.\"\n",
+    "\n",
+    "pattern = r'[A-Z][a-z]+'\n",
+    "\n",
+    "matches = re.findall(pattern,text)\n",
+    "\n",
+    "for match in matches: \n",
+    "    print(match)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "eb4d0059",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Hello hello world world\n"
+     ]
+    }
+   ],
+   "source": [
+    "#25\n",
+    "import re\n",
+    "\n",
+    "text = \"Hello hello world world\"\n",
+    "pattern = r'\\b(\\w+)\\s+\\1b'\n",
+    "\n",
+    "result = re.sub(pattern, r'\\1', text, flags=re.I)\n",
+    "\n",
+    "print(result)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "id": "c3a49903",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Enter a string: not68\n",
+      "String ends with alphanumeric characters.\n"
+     ]
+    }
+   ],
+   "source": [
+    "#26\n",
+    "import re\n",
+    "text = input(\"Enter a string: \")\n",
+    "pattern = r'.*[a-zA-Z0-9]$'\n",
+    "\n",
+    "if re.match(pattern,text):\n",
+    "    print(\"String ends with alphanumeric characters.\")\n",
+    "else:\n",
+    "    print(\"String does not end with an alphanumeric character.\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "cd51a1fa",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3 (ipykernel)",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.11.5"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
